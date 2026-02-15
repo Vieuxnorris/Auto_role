@@ -1,0 +1,15 @@
+app = "auto-role-vieuxnorris"
+primary_region = "cdg"
+kill_signal = "SIGINT"
+kill_timeout = "10s"
+
+[processes]
+app = "node index.js"
+
+[env]
+NODE_ENV = "production"
+LOG_LEVEL = "info"
+
+[[vm]]
+size = "shared-cpu-1x"
+memory = "256mb"
