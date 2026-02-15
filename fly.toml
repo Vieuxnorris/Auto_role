@@ -1,15 +1,23 @@
-app = "auto-role-vieuxnorris"
-primary_region = "cdg"
-kill_signal = "SIGINT"
-kill_timeout = "10s"
+# fly.toml app configuration file generated for auto-role on 2026-02-15T12:26:57Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[processes]
-app = "node index.js"
+app = 'auto-role'
+primary_region = 'ams'
 
-[env]
-NODE_ENV = "production"
-LOG_LEVEL = "info"
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-size = "shared-cpu-1x"
-memory = "256mb"
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 256
